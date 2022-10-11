@@ -9,6 +9,8 @@ packages = [{include = "prox_automigrate"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 
+[tool.poetry.scripts]
+prox-am = "prox_automigrate.scripts.start:main"
 
 [build-system]
 requires = ["poetry-core"]
