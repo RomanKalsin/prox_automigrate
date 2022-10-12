@@ -5,9 +5,9 @@ prox-am:
 build:
 		poetry build
 package-install:
-		python3 -m pip install --user dist/*.whl
+		python3 -m pip install dist/*.whl
 package-uninstall:
-		python3 -m pip uninstall prox-am
+		python3 -m pip uninstall prox_automigrate
 publish:
 		poetry publish --dry-run
 lint:
