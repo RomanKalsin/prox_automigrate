@@ -1,16 +1,16 @@
 install:
 		poetry install
-sadkomed_parser:
-		poetry run sadkomed_parser
+prox-am:
+		poetry run prox-am
 build:
 		poetry build
 package-install:
 		python3 -m pip install --user dist/*.whl
 package-uninstall:
-		python3 -m pip uninstall sadkomed_parser
+		python3 -m pip uninstall prox-am
 publish:
 		poetry publish --dry-run
 lint:
-		poetry run flake8 sadkomed_parser
+		poetry run flake8 prox_automigrate
 
-.PHONY: sadkomed_parser
+.PHONY: prox_automigrate
