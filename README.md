@@ -1,10 +1,9 @@
-Preparing for installation:
+Preparing for use:
 
-apt update -y
+git clone https://github.com/RomanKalsin/prox_automigrate.git
 
-apt install curl python3-venv python3-pip -y
+cd ./prox_automigrate
 
-export PATH="/root/.local/bin:$PATH"
+chmod +x install.sh
 
-curl -sSL https://install.python-poetry.org | python3 -
-poetry config virtualenvs.in-project true
+./install.sh
