@@ -29,4 +29,7 @@ def snap_send(hv_ip, dataset_list, vm_name, vm_id, dest, f_dt, hv_username):
         file.close()
         subprocess.run(['chmod', '+x', './{}.sh'.format(vm_name)])
         subprocess.run(['./{}.sh'.format(vm_name)])
-        subprocess.run(['rm', './{}.sh'.format(vm_name)])
+        status = subprocess.run(['rm', './{}.sh'.format(vm_name)])
+        if status.returncode != 0:
+            print("Snapshot {} not send".format(snap_name))
+        print("Snapshot {} sended".format(snap_name))
