@@ -27,7 +27,7 @@ def list_storage(hv_ip, vm_id, hv_username):
         name = re.search(r"(?<=(zfspool: )).*", i)
         path = re.search(r"(?<=(pool )).*", i)
 # Если совпадений не найдено пропускаем итерацию
-        if name == None and path == None:
+        if name == None or path == None:
              continue
 # Если совпадение найдено создаем запись в словаре
         else:
