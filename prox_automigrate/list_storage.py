@@ -52,4 +52,5 @@ def list_storage(hv_ip, vm_id, hv_username):
                     dataset = re.search(r'^[^,]*' ,out[key]).group(0)
 # Если совпадение найдено добавляем в массив полный путь к диску
                     dataset_list.append(re.sub(r'{}:'.format(i) , "{}/".format(zpool_list[i]) , dataset))
+    print(dataset_list)
     return dataset_list
