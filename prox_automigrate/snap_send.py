@@ -20,13 +20,10 @@ def snap_send(hv_ip, dataset_list, vm_name, vm_id, new_vm_id, dest, f_dt, hv_use
         # заменяем id виртуальной машины на новый
         if new_vm_id != False:
             disk_name = disk_name.replace(vm_id ,new_vm_id)
-        print(disk_name)
-        print(dataset)
         # пример "0"
 # Если датасет назначения указан
         if dest != False:
             disk_path = "{}/{}".format(dest, disk_name)
-            print(disk_path)
             print("Needed edit config file vm id:{} disk path:{} ".format(vm_id, disk_path))
         else:
             disk_path = "{}/{}".format(dataset, disk_name)
