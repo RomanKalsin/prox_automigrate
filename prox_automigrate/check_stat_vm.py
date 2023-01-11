@@ -5,7 +5,7 @@ import paramiko
 import re
 
 
-def check_stat_vm(hv_ip, vm_id, hv_username):
+def check_stat_vm(hv_ip, vm_id, hv_username, force):
     vm_name = ""
     vm_status = False
     client = paramiko.SSHClient()
@@ -29,7 +29,7 @@ def check_stat_vm(hv_ip, vm_id, hv_username):
     vm_data = vm_data.group(0)
     vm_name = re.search(r"(?<=( {} ))\S*( )".format(vm_id), vm_data).group(0)
     vm_status = re.search(r"stopped", vm_data)
-    if vm_status == None:
+    if vm_status == None and force == False:
         print("The virtual machine is not in stopped status")
         vm_status = False
         client.close()

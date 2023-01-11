@@ -13,9 +13,9 @@ from prox_automigrate.config_edit import config_edit_dataset
 
 def main():
     options = cli()
-    hv_ip, vm_id, hv_username, dest, new_vm_id = options.hv_ip, options.vm_id, options.user ,options.dest, options.idvm
+    hv_ip, vm_id, hv_username, dest, new_vm_id, force = options.hv_ip, options.vm_id, options.user ,options.dest, options.idvm, options.force
     # Проверяем нет ли на локольном гипервизоре (назначения) виртуалки с таким ID 
-    vm_name, vm_status = check_stat_vm("localhost", new_vm_id, hv_username)
+    vm_name, vm_status = check_stat_vm("localhost", new_vm_id, hv_username, force)
     if vm_name != "NO-EXISTS":
         print("A VM with this ID exists on the target hypervisor")
         return 1

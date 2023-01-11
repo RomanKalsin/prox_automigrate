@@ -18,4 +18,6 @@ def cli():
                         help='ZFS dataset destanation, example:"zfs-hdd/local/proxmox"')
     options.add_argument('-i', '--idvm', default=False,
                         help='New id for VM')
+    options.add_argument('-f', '--force', action='store_true',
+                        help='Ignore VM status')
     return options.parse_args()
