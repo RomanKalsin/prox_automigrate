@@ -20,7 +20,7 @@ def main():
         print("A VM with this ID exists on the target hypervisor")
         return 1
     # Проверяем чтоб виртуальная машина была выключена
-    vm_name, vm_status = check_stat_vm(hv_ip, vm_id, hv_username)
+    vm_name, vm_status = check_stat_vm(hv_ip, vm_id, hv_username, force)
     if vm_status != True:
         print("There is no virtual machine for migrate with this id")
         return 1
