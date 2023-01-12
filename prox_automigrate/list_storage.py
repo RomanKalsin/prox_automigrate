@@ -48,7 +48,7 @@ def list_storage(hv_ip, vm_id, hv_username, debug):
 # Тогда для каждого наденного на гипервизоре зфс датасета
             for i in zpool_list:
 # Ищем совпадение с дисками на виртуальной машине
-                if bool(re.match(r'{}'.format(i) , out[key])):
+                if bool(re.match(r'{}:'.format(i) , out[key])):
                     dataset = re.search(r'^[^,]*' ,out[key]).group(0)
 # Если совпадение найдено добавляем в массив полный путь к диску
                     dataset_list.append(re.sub(r'{}:'.format(i) , "{}/".format(zpool_list[i]) , dataset))
