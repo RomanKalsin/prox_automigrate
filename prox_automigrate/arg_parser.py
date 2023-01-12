@@ -20,4 +20,5 @@ def cli():
                         help='New id for VM')
     options.add_argument('-f', '--force', action='store_true',
                         help='Ignore VM status')
+    options.add_argument('-b', '--debug', action='store_true')
     return options.parse_args()

@@ -7,7 +7,7 @@ import yaml
 
 
 # Получение дисков для миграции
-def list_storage(hv_ip, vm_id, hv_username):
+def list_storage(hv_ip, vm_id, hv_username, debug):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(hostname=hv_ip, username=hv_username)
@@ -52,4 +52,10 @@ def list_storage(hv_ip, vm_id, hv_username):
                     dataset = re.search(r'^[^,]*' ,out[key]).group(0)
 # Если совпадение найдено добавляем в массив полный путь к диску
                     dataset_list.append(re.sub(r'{}:'.format(i) , "{}/".format(zpool_list[i]) , dataset))
+    if debug == True:
+        for i in dataset_list:
+            print(i)
+        for key, value in zpool_list.items():
+            print("{}: {}".format(key, value))
+        
     return dataset_list, zpool_list
