@@ -15,5 +15,10 @@ def cli():
     options.add_argument('-u', '--user', default='root',
                         help='source server credential username default="root"')
     options.add_argument('-d', '--dest', default=False,
-                        help='ZFS dataset destanation')
+                        help='ZFS dataset destanation, example:"zfs-hdd/local/proxmox"')
+    options.add_argument('-i', '--idvm', default=False,
+                        help='New id for VM')
+    options.add_argument('-f', '--force', action='store_true',
+                        help='Ignore VM status')
+    options.add_argument('-b', '--debug', action='store_true')
     return options.parse_args()
