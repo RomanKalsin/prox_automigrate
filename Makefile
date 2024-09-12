@@ -8,6 +8,10 @@ package-install:
 		python3 -m pip install dist/*.whl
 package-uninstall:
 		python3 -m pip uninstall prox_automigrate
+package-installx:
+		python3 -m pipx install dist/*.whl
+package-uninstallx:
+		python3 -m pipx uninstall prox_automigrate
 publish:
 		$(HOME)/.local/bin/poetry publish --dry-run
 lint:
