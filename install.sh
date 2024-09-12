@@ -13,6 +13,7 @@ if [ "$release" = 12 ]
 then
     apt install pipx python3-full -y    
     make package-installx
+    pipx ensurepath
 elif [ "$release" = 11 ]
 then
     make package-install
