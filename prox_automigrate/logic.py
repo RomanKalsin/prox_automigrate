@@ -18,12 +18,12 @@ def main():
     # Проверяем нет ли на локальном гипервизоре (назначения) виртуалки с таким ID 
     vm_name, vm_status = check_stat_vm("localhost", new_vm_id, hv_username, force)
     if vm_name != "NO-EXISTS":
-        print("A VM with this ID exists on the target hypervisor")
+        print("A VM with this ID {} exists on the target hypervisor".format(vm_id))
         return 1
     # Проверяем чтоб виртуальная машина была выключена
     vm_name, vm_status = check_stat_vm(hv_ip, vm_id, hv_username, force)
     if vm_status != True:
-        print("There is no virtual machine for migrate with this id")
+        print("There is no virtual machine for migrate with this id {}".format(vm_id))
         return 1
     dataset_list, zpool_list = list_storage(hv_ip, vm_id, hv_username, debug)
     f_dt = snap_create(hv_ip, dataset_list, hv_username)
